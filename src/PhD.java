@@ -1,4 +1,4 @@
-/** NetIds: mxz4, tcc78. Time spent: 4 hours, 30 minutes.
+/** NetIds: mxz4, tcc78. Time spent: 5 hours 15 minutes.
  * An instance maintains info about the PhD of a person. 
  * Checked Javadoc output -- OK */
 public class PhD {
