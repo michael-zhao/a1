@@ -15,9 +15,10 @@ public class PhDTest {
 		assertEquals(0,doctor.numAdvisees());
 		
 		/* testing assert statements in the first constructor */
-		assertThrows(AssertionError.class, () -> new PhD("",0,0));
-		assertThrows(AssertionError.class, () -> new PhD("Joe",15,0));
-		assertThrows(AssertionError.class, () -> new PhD("Bob", -3, 0));
+		assertThrows(AssertionError.class, () -> new PhD(null,1,1950));
+		assertThrows(AssertionError.class, () -> new PhD("",1,1950));
+		assertThrows(AssertionError.class, () -> new PhD("Joe",13,1950));
+		assertThrows(AssertionError.class, () -> new PhD("Bob", -3, 1950));
 	}
 	
 	@Test
@@ -50,6 +51,9 @@ public class PhDTest {
 		test.setAdvisor1(doc);
 		assertThrows(AssertionError.class, () -> test.setAdvisor2(doc));
 		
+		PhD test2 = new PhD("Gamma", 3, 1995);
+		assertThrows(AssertionError.class, () -> test2.setAdvisor2(doc2));
+		
 		assertThrows(AssertionError.class, () -> newdoc2.setAdvisor2(doc));
 		assertThrows(AssertionError.class, () -> newdoc2.setAdvisor2(null));
 	}
@@ -79,11 +83,19 @@ public class PhDTest {
 		assertEquals(1,doc2.numAdvisees());
 		
 		/* testing assert statements for second and third constructors */
+		assertThrows(AssertionError.class, () -> new PhD(null, 3, 1932, doc2));
 		assertThrows(AssertionError.class, () -> new PhD("", 1, 2018, doc));
-		assertThrows(AssertionError.class, () -> new PhD("Jon", 0, 2018, doc));
-		assertThrows(AssertionError.class, () -> new PhD("Bob", 1, 2018, null));
+		assertThrows(AssertionError.class, () -> new PhD("Jon", 0, 2015, doc));
+		assertThrows(AssertionError.class, () -> new PhD("Jane",13,2010,doc2));
+		assertThrows(AssertionError.class, 
+				() -> new PhD("Bob", 11, 1932, null));
 		
-		assertThrows(AssertionError.class, () -> new PhD("", 5, 2020, doc2));
+		assertThrows(AssertionError.class, 
+				() -> new PhD(null, 3, 2012, doc, doc2));
+		assertThrows(AssertionError.class, 
+				() -> new PhD("", 5, 2020, doc2, doc));
+		assertThrows(AssertionError.class, 
+				() -> new PhD("Steve", 0, 2011, doc, doc2));
 		assertThrows(AssertionError.class, 
 				() -> new PhD("Rex", 21, 2020, doc, doc2));
 		assertThrows(AssertionError.class, 

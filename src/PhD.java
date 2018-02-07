@@ -15,7 +15,7 @@ public class PhD {
 	 * Precondition: n has at least 1 char and m is in 1..12.
 	 */
 	public PhD(String n, int m, int y) {
-		assert n.length() > 0;
+		assert n != null && n.length() > 0;
 		assert m >= 1 && m <= 12;
 		
 		this.name = n;
@@ -99,8 +99,8 @@ public class PhD {
 	 * Precondition: n has at least 1 char, m is in 1..12, and adv is not null.
 	 */
 	public PhD(String n, int m, int y, PhD adv1) {
-		assert n.length() > 0;
-		assert m >= 1 & m <= 12;
+		assert n != null && n.length() > 0;
+		assert m >= 1 && m <= 12;
 		assert adv1 != null;
 		
 		this.name = n;
@@ -117,7 +117,7 @@ public class PhD {
 	 * not null, and adv1 and adv2 are different.
 	 */
 	public PhD(String n, int m, int y, PhD adv1, PhD adv2) {
-		assert n.length() > 0;
+		assert n != null && n.length() > 0;
 		assert m >= 1 && m <= 12;
 		assert adv1 != null && adv2 != null;
 		assert adv1 != adv2;
